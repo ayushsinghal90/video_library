@@ -94,7 +94,7 @@ class VideoDashboardView(APIView, LargeResultsSetPagination):
 
             if search_text:
                 videos = Video.objects.annotate(search=SearchVector('title', 'description'), ). \
-                    filter(search=search_text).select_releated('channel').order_by(sort_field)
+                    filter(search=search_text).select_related('channel').order_by(sort_field)
             else:
                 videos = Video.objects.all()
             videos = self.paginate_queryset(videos, request, view=self)
