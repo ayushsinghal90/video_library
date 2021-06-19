@@ -76,13 +76,18 @@ class VideoDashboardView(APIView, LargeResultsSetPagination):
         particular order.
         :param request:
             search_q:str = search text
+            channel:str = channel name
+            video_id:str = video Id
             sort:str = sort order ['title', 'description', 'publishing_on'] prefix '-' for reverse order
             page:int = page_number
         :return: RReturn list of video details in order of published_on in paginated format with next page link.
         """
         try:
             search_text = request.data.get('search_q', None)
+            channel = request.data.get('channel', None)
+            video_id = request.data.get('video_id', None)
             sort_term = sort = request.data.get('sort', PUBLISHED_DATE)
+
             asc_order = True
             sort_field = PUBLISHED_DATE
             if sort[0] == '-':
@@ -92,11 +97,16 @@ class VideoDashboardView(APIView, LargeResultsSetPagination):
                 sort_field = SORT_MAPPER.get(sort_term)
                 sort_field = sort_field if asc_order else '-' + sort_field
 
+            videos = Video.objects.select_related('channel')
             if search_text:
-                videos = Video.objects.annotate(search=SearchVector('title', 'description'), ). \
-                    filter(search=search_text).select_related('channel').order_by(sort_field)
-            else:
-                videos = Video.objects.all()
+                videos = videos.annotate(search=SearchVector('title', 'description'), ). \
+                    filter(search=search_text)
+            if channel:
+                videos = videos.annotate(search=SearchVector('channel__name'), ).filter(search=channel)
+            if video_id:
+                videos = videos.filter(video_id=video_id)
+
+            videos = videos.order_by(sort_field)
             videos = self.paginate_queryset(videos, request, view=self)
             data = VideoSerializer(videos, many=True).data
             data = self.get_paginated_response(data)
