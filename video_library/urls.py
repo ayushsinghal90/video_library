@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from video_library.video import urls as video_urls
 from video_library.keys import urls as key_urls
 
 urlpatterns = [
+    path('video/', include(video_urls)),
     path('keys/', include(key_urls)),
     path('admin/', admin.site.urls),
 ]
