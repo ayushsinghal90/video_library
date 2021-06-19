@@ -93,7 +93,7 @@ class VideoDashboardView(APIView, LargeResultsSetPagination):
                 sort_field = sort_field if asc_order else '-' + sort_field
 
             if search_text:
-                Video.objects.annotate(search=SearchVector('title', 'description'), ). \
+                videos = Video.objects.annotate(search=SearchVector('title', 'description'), ). \
                     filter(search=search_text).select_releated('channel').order_by(sort_field)
             else:
                 videos = Video.objects.all()
