@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'video_library',
     'video_library.channel',
     'video_library.video',
+    'video_library.keys',
 ]
 
 MIDDLEWARE = [
