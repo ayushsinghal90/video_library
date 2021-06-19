@@ -58,6 +58,6 @@ http://0.0.0.0:8000/keys/
 }
 ~~~
 
-### Change YouTube Category
+### Change YouTube schedule query config
 - change **SEARCH_KEYWORD** currently **entertainment**
 - change **SCHEDULED_QUERY_TIME** currently **700 minutes**
