@@ -50,7 +50,7 @@ http://0.0.0.0:8000
 ~~~
 http://0.0.0.0:8000/keys/
 ~~~
-- body  (key will expire after 22 jun 11am)
+- body  **(key will expire after 22 jun 11am)**
 ~~~
 {
     "type": "youtube",
