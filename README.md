@@ -57,3 +57,6 @@ http://0.0.0.0:8000/keys/
     "key": "AIzaSyAQiK5eDBZwv0OO2uV4J-n_BqDbKHpHKYU"
 }
 ~~~
+
+### Change YouTube Category
+- change **SEARCH_KEYWORD** currently **entertainment**
