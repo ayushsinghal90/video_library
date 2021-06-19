@@ -10,6 +10,8 @@ from video_library.core import youtube_api
 
 LOG = logging.getLogger(__name__)
 
+SCHEDULED_QUERY_TIME = 700
+
 
 @shared_task
 def youtube_sync_engine():
@@ -18,7 +20,7 @@ def youtube_sync_engine():
     particular intervals and save then in our database.
     :return:
     """
-    published_after = datetime.now()-timedelta(minutes=700)
+    published_after = datetime.now()-timedelta(minutes=SCHEDULED_QUERY_TIME)
     published_after = "{}T{}Z".format(str(published_after.date()), str(published_after.time())[:8])
     api_keys = get_keys_for_youtube()
     for api_key in api_keys:
