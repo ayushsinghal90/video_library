@@ -5,5 +5,4 @@ celerybeat-schedule
 .idea
 __pycache__/*
 venv*/
-.idea/
 *.idea/
