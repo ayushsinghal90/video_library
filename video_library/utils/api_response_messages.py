@@ -1,0 +1,18 @@
+# Success Messages
+SUCCESS = "Success"
+KEY_CREATION_FAILED_MSG = "Failure while adding key."
+SERVER_ERROR_MSG = "Something went wrong with our server please retry after sometime."
+
+# Code
+SUCCESS_CODE = "SUCCESS"
+KEY_CREATION_FAILED = "KEY_CREATION_FAILED"
+SERVER_ERROR = "SERVER_ERROR"
+
+SUCCESS_MESSAGE = {
+    SUCCESS_CODE: SUCCESS
+}
+
+ERROR_MESSAGE = {
+    KEY_CREATION_FAILED: KEY_CREATION_FAILED_MSG,
+    SERVER_ERROR: SERVER_ERROR_MSG
+}
