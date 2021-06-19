@@ -6,3 +6,4 @@ celerybeat-schedule
 __pycache__/*
 venv*/
 *.idea/
+dump.rdb
