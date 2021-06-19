@@ -44,3 +44,16 @@ http://0.0.0.0:8000
 ### Api Collection
 - [API collection](https://drive.google.com/file/d/1eXO8ylcjp7xutWFv4jcdhX5AsSlw0cBF/view?usp=sharing)
 - [ENV collection](https://drive.google.com/file/d/1KE90Wx4DnkCo-7rOEQSjPZdayzDqzLqc/view?usp=sharing)
+
+### Add YouTube api key
+- Url
+~~~
+http://0.0.0.0:8000/keys/
+~~~
+- body  (key will expire after 22 jun 11am)
+~~~
+{
+    "type": "youtube",
+    "key": "AIzaSyAQiK5eDBZwv0OO2uV4J-n_BqDbKHpHKYU"
+}
+~~~
