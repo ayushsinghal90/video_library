@@ -142,5 +142,5 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_IMPORTS = (
-    'youtube_videos.scheduled_task.tasks',
+    'video_library.scheduled_task.tasks',
 )
