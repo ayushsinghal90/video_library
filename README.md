@@ -24,7 +24,7 @@ source venv/bin/activate
 Install dependencies:
 
 ```bash
-pip3 install -r requirements/local.txt
+pip3 install -r requirements.txt
 ```
 
 ### Run
