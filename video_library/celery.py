@@ -4,6 +4,7 @@ import logging
 import os
 from celery import Celery
 from django.conf import settings
+from celery.schedules import crontab
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'youtube_videos.settings')
 app = Celery('youtube_videos')
@@ -11,6 +12,13 @@ app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 LOG = logging.getLogger(__name__)
+
+app.conf.beat_schedule = {
+    'youtube_sync_engine': {
+        'task': 'youtube_videos.scheduled_task.tasks.youtube_sync_engine',
+        'schedule': crontab(minute='*/1')  # execute every minute
+    }
+}
 
 
 @app.task(bind=True)
