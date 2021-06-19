@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'video_library',
     'video_library.channel',
+    'video_library.video',
 ]
 
 MIDDLEWARE = [
